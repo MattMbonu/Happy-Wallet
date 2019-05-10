@@ -7,7 +7,9 @@
     "test": "jest --config=jest.config.json",
     "build:prod": "webpack -p --env production",
     "build:dev": "webpack",
-    "dev-server": "webpack-dev-server"
+    "dev-server": "webpack-dev-server",
+    "start": "node server/server.js",
+    "heroku-postbuild": "yarn run build:prod"
   },
   "keywords": [],
   "author": "",
