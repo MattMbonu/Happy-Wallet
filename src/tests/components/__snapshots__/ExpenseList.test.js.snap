@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should display add expense message 1`] = `
+<div>
+  <p>
+    no expenses click
+     
+    <Link
+      exact={true}
+      replace={false}
+      to="/create"
+    >
+      here
+    </Link>
+     
+    to create a new expense
+  </p>
+</div>
+`;
+
+exports[`should render expense list from expenses 1`] = `
+<div>
+  <Connect(ExpenseListItem)
+    amount={10000}
+    createdAt={"1970-01-01T00:00:00.000Z"}
+    description="rent"
+    id="1"
+    key="1"
+  />
+  <Connect(ExpenseListItem)
+    amount={20000}
+    createdAt={-345600000}
+    description="gum"
+    id="2"
+    key="2"
+  />
+  <Connect(ExpenseListItem)
+    amount={30000}
+    createdAt={345600000}
+    description="credit card"
+    id="3"
+    key="3"
+  />
+  <Connect(ExpenseListItem)
+    amount={80000}
+    createdAt={-432000000}
+    description="gummmmm"
+    id="4"
+    key="4"
+  />
+</div>
+`;
