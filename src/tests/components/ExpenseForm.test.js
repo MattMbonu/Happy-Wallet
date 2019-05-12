@@ -2,6 +2,7 @@ import React from "react";
 import ExpenseForm from "../../components/ExpenseForm";
 import { shallow } from "enzyme";
 import expenses from "../fixtures/expenses";
+import moment from "moment";
 
 test("should render form", () => {
   const wrapper = shallow(<ExpenseForm />);
@@ -72,4 +73,17 @@ test("should call on submit prop", () => {
     amount: expenses[0].amount,
     createdAt: expenses[0].createdAt.valueOf()
   });
+});
+
+test("should set a new date on date change", () => {
+  const now = moment();
+  const wrapper = shallow(<ExpenseForm />);
+  wrapper.find("SingleDatePicker").prop("onDateChange")(now);
+  expect(wrapper.state("createdAt")).toEqual(now);
+});
+
+test("should set a new date on date change", () => {
+  const wrapper = shallow(<ExpenseForm />);
+  wrapper.find("SingleDatePicker").prop("onFocusChange")({ focused: true });
+  expect(wrapper.state("calendarFocus")).toEqual(true);
 });
