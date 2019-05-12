@@ -7,7 +7,7 @@ import {
   sortByAmount,
   setStartDate,
   setEndDate
-} from "../actions/filters";
+} from "../actions/Filters";
 
 export class ExpenseListFilters extends Component {
   state = {
