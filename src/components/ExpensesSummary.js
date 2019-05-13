@@ -7,7 +7,8 @@ import selectExpensesTotal from "../selectors/expenses-total";
 const ExpensesSummary = props => (
   <div>
     <h1>
-      Viewing: {props.expenses.length} expenses totalling{" "}
+      Viewing: {props.expenses.length}{" "}
+      {props.expenses.length === 1 ? "expense" : "expenses"} totalling{" "}
       {numeral(props.expensesTotal / 100).format("$0,0.00")}
     </h1>
   </div>
