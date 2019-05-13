@@ -11,8 +11,9 @@ exports[`renders a correct expense 1`] = `
     </h1>
   </Link>
   <h2>
-    10000
-     Date:
+    $100.00
+     - Date:
+    December 31st, 1969
   </h2>
 </div>
 `;

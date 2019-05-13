@@ -5,6 +5,7 @@ exports[`renders expense dashboard page 1`] = `
   <p>
     this is my expenses Dashboard
   </p>
+  <Connect(ExpensesSummary) />
   <Connect(ExpenseListFilters) />
   <Connect(ExpenseList) />
 </div>

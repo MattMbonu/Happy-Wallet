@@ -11,7 +11,7 @@ export const ExpenseListItem = props => {
         <h1>{props.description}</h1>
       </Link>
       <h2>
-        {numeral(props.amount / 100).format("$0,0.00")}- Date:
+        {numeral(props.amount / 100).format("$0,0.00")} - Date:
         {moment(props.createdAt).format("MMMM Do, YYYY")}
       </h2>
     </div>
