@@ -22,7 +22,7 @@ export const startAddExpense = (expenseData = {}) => {
     const {
       description = "",
       note = "",
-      amount = 0,yar
+      amount = 0,
       createdAt = 0
     } = expenseData;
     const expense = { description, note, amount, createdAt };
