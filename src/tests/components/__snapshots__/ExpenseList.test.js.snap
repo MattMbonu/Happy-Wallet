@@ -6,7 +6,7 @@ exports[`should display add expense message 1`] = `
     no expenses click
      
     <Link
-      exact={true}
+      exact="true"
       replace={false}
       to="/create"
     >
