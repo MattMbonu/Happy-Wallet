@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import AppRouter from "./Routers/AppRouter";
 import { Provider } from "react-redux";
 import configureStore from "./store/configureStore";
+import { setExpenses } from "./actions/Expenses";
 import "./firebase/firebase";
 
 import "normalize.css/normalize.css";
@@ -18,4 +19,9 @@ const jsx = (
 );
 
 const appRoot = document.getElementById("app");
-ReactDOM.render(jsx, appRoot);
+
+ReactDOM.render(<p>Loading...</p>, appRoot);
+
+store.dispatch(setExpenses()).then(() => {
+  ReactDOM.render(jsx, appRoot);
+});

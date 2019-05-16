@@ -2,6 +2,7 @@ import uuid from "uuid";
 import database from "../firebase/firebase";
 
 export const addExpense = ({
+  id,
   description = "",
   note = "",
   amount = 0,
@@ -9,12 +10,35 @@ export const addExpense = ({
 } = {}) => ({
   type: "ADD_EXPENSE",
   expense: {
-    id: uuid(),
+    id,
     description,
     note,
     amount,
     createdAt
   }
+});
+
+export const setExpenses = () => {
+  const expenses = [];
+  return dispatch => {
+    return database
+      .ref("expenses")
+      .once("value")
+      .then(snapshot => {
+        snapshot.forEach(snapshotChild => {
+          expenses.push({
+            id: snapshotChild.key,
+            ...snapshotChild.val()
+          });
+        });
+        dispatch(setExpenseStore(expenses));
+      });
+  };
+};
+
+export const setExpenseStore = (expenses = []) => ({
+  type: "SET_EXPENSE",
+  expenses
 });
 
 export const startAddExpense = (expenseData = {}) => {
@@ -44,6 +68,17 @@ export const removeExpense = ({ id } = {}) => ({
   type: "REMOVE_EXPENSE",
   removeId: id
 });
+
+export const startRemoveExpense = ({ id } = {}) => {
+  return dispatch => {
+    database
+      .ref(`expenses/${id}`)
+      .remove()
+      .then(() => {
+        dispatch(removeExpense({ id }));
+      });
+  };
+};
 
 export const editExpense = (id, updates = {}) => ({
   type: "EDIT_EXPENSE",
