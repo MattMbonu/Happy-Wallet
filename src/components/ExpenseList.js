@@ -9,11 +9,7 @@ export const ExpenseList = props => (
   <div>
     {props.expenses.length === 0 ? (
       <p>
-        no expenses click{" "}
-        <Link to="/create" exact={"true"}>
-          here
-        </Link>{" "}
-        to create a new expense
+        no expenses click <Link to="/create">here</Link> to create a new expense
       </p>
     ) : (
       props.expenses.map(expense => (
