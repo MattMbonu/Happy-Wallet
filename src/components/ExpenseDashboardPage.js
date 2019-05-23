@@ -5,7 +5,6 @@ import ConnectedExpenseSummary from "./ExpensesSummary";
 
 const ExpenseDashboardPage = () => (
   <div>
-    <p>this is my expenses Dashboard</p>
     <ConnectedExpenseSummary />
     <ExpenseListFilters />
     <ConnectedExpenseList />
