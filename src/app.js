@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import configureStore from "./store/configureStore";
 import LoadingPage from "./components/LoadingPage";
 import { setExpenses } from "./actions/Expenses";
+import { startSetEarnings } from "./actions/earnings";
 import { login, logout } from "./actions/auth";
 import { firebase } from "./firebase/firebase";
 
@@ -26,6 +27,7 @@ const renderApp = () => {
   if (!hasRenderened) {
     ReactDOM.render(jsx, appRoot);
     hasRenderened = true;
+    return;
   }
 };
 
@@ -34,12 +36,16 @@ ReactDOM.render(<LoadingPage />, appRoot);
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
     store.dispatch(login(user.uid));
-    store.dispatch(setExpenses()).then(() => {
-      renderApp();
-      if (history.location.pathname === "/") {
-        history.push("/dashboard");
-      }
-    });
+    store
+      .dispatch(setExpenses())
+      .then(() => store.dispatch(startSetEarnings()))
+      .then(() => {
+        renderApp();
+        if (history.location.pathname === "/") {
+          console.log("working");
+          history.push("/welcome");
+        }
+      });
   } else {
     store.dispatch(logout());
     renderApp();

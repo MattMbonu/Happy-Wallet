@@ -87,7 +87,7 @@ export default class ExpenseForm extends Component {
           onChange={this.onNoteChange}
         />
         <div>
-          <button className="button">Save Expense</button>
+          <button className="button">Save</button>
         </div>
       </form>
     );

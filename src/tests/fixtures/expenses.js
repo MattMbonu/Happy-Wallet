@@ -4,14 +4,14 @@ export default [
   {
     id: "1",
     description: "rent",
-    note: "",
+    note: "dfawdawsdawd",
     amount: 10000,
     createdAt: moment(0)
   },
   {
     id: "2",
     description: "gum",
-    note: "",
+    note: "fewfewf",
     amount: 20000,
     createdAt: moment(0)
       .subtract(4, "days")

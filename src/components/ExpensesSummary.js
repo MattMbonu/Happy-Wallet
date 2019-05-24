@@ -16,6 +16,9 @@ const ExpensesSummary = props => (
       <div className="page-header__actions">
         <Link className="button" to="/create">
           Add Expense
+        </Link>{" "}
+        <Link className="button button--list" to="/earnings/dashboard">
+          Switch to Earnings
         </Link>
       </div>
     </div>
