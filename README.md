@@ -1,4 +1,4 @@
-# Crwn-Clothing
+# Happy Wallet
 
 Happy Wallet is a simple yet efficient application for keeping up with expenses. It allows user to Sign In with Google and keep track of their expenses with basic CRUD functionality and the option to sort by amount, date created, and by keyword
 I built this project without Create-React-App so that I could gain experience working with webpack from scratch
